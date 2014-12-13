@@ -427,10 +427,10 @@ def build_fastcomp_tool(tool):
   if WINDOWS:
     if build_with_vs2010:
       if tool.bitness == 64:
-        generator = 'Visual Studio 10 Win64'
+        generator = 'Visual Studio 12 Win64'
       else:
-        generator = 'Visual Studio 10'
-      make = ['C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\MSBuild.exe', '/maxcpucount:' + str(cpu_cores), '/t:Build', '/p:Configuration=RelWithDebInfo', '/nologo', '/verbosity:minimal', 'LLVM.sln']
+        generator = 'Visual Studio 12'
+      make = ['C:\\Program Files (x86)\\MSBuild\\12.0\\Bin\\MSBuild.exe', '/maxcpucount:' + str(cpu_cores), '/t:Build', '/p:Configuration=Release', '/nologo', '/verbosity:minimal', 'LLVM.sln']
     else:
       generator = 'MinGW Makefiles'
       make = ['mingw32-make', '-j' + str(cpu_cores)]
